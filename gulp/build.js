@@ -72,7 +72,7 @@ gulp.task('dev:styles', function () {
   };
 
   var fileList = [
-    'bower_components/bootswatch/sandstone/bootswatch.less',
+    'bower_components/bootswatch/cerulean/bootswatch.less',
     'bower_components/fontawesome/css/font-awesome.css',
     'bower_components/angular-spinkit/src/angular-spinkit.css',
     'bower_components/angular-chart.js/dist/angular-chart.css',
