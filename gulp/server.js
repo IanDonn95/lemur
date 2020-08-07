@@ -38,7 +38,22 @@ function browserSyncInit(baseDir, files, browser) {
 
 }
 
-gulp.task('serve', ['watch'], function () {
+// gulp.task('serve', function () {
+//   browserSyncInit([
+//     '.tmp',
+//     'lemur/static/app'
+//   ], [
+//     '.tmp/*.html',
+//     '.tmp/styles/**/*.css',
+//     'lemur/static/app/angular/**/*.js',
+//     'lemur/static/app/partials/**/*.html',
+//     'lemur/static/app/images/**/*',
+//     'lemur/static/app/angular/**/*',
+//     'lemur/static/app/index.html'
+//   ]);
+// });
+
+gulp.task('serve', gulp.series('watch', function () {
   browserSyncInit([
     '.tmp',
     'lemur/static/app'
@@ -51,9 +66,8 @@ gulp.task('serve', ['watch'], function () {
     'lemur/static/app/angular/**/*',
     'lemur/static/app/index.html'
   ]);
-});
+}));
 
-
-gulp.task('serve:dist', ['build'], function () {
+gulp.task('serve:dist', gulp.series('build', function () {
   browserSyncInit('lemur/static/dist');
-});
+}));

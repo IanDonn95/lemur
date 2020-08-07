@@ -5,9 +5,12 @@
 
 var gulp = require('gulp');
 
-require('require-dir')('./gulp');
+// require('require-dir')('./gulp');
+require('./gulp/build');
+require('./gulp/watch');
+require('./gulp/server');
 
-gulp.task('default', function () {
+gulp.task('default', function (done) {
   var c = {
     reset: '\x1b[0m',
     bold: '\x1b[1m',
@@ -25,7 +28,7 @@ gulp.task('default', function () {
   console.log('');
   console.log(c.green + c.bold + 'All Commands' + c.reset);
   console.log(c.green + '-------------------------------------------' + c.reset);
-  console.log(Object.keys(gulp.tasks).sort().join('\n'));
+  // console.log(Object.keys(gulp.tasks).sort().join('\n'));
   console.log('');
-
+  done()
 });
